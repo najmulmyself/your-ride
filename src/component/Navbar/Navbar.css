@@ -1,0 +1,19 @@
+.nav{
+    display: flex;
+    float: right;
+}
+.nav li{
+    color: #2D2D2D;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    list-style: none;
+}
+.nav button{
+    background-color: #FF6E40;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin: 15px 0;
+}

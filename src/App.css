@@ -1,10 +1,17 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.background{
+  width: 1180px;
+  margin: 0 auto;
+}
+body{
+  background-image: url(./images/Bg.png);
+  height: 445px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 @media (prefers-reduced-motion: no-preference) {
