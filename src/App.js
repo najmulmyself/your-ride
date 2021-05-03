@@ -1,12 +1,12 @@
 import './App.css';
+import Main from './component/Main/Main';
 import Navabar from './component/Navbar/Navabar';
-// import Bg from './images/Bg.png'
 
 function App() {
   return (
     <div className="background">
-      {/* <img alt=""/> */}
       <Navabar></Navabar>
+      <Main></Main>
     </div>
   );
 }

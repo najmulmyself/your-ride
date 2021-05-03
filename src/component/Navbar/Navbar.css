@@ -1,13 +1,23 @@
 .nav{
     display: flex;
-    float: right;
+    justify-content: space-between;
+}
+.nav h3{
+    color: #2D2D2D; 
+    font-size: 20px;
+    font-weight: 700;
 }
 .nav li{
+    float: left;
     color: #2D2D2D;
     padding: 20px;
     font-size: 16px;
     font-weight: 500;
     list-style: none;
+    cursor: pointer;
+}
+.nav li:hover{
+    color: white;
 }
 .nav button{
     background-color: #FF6E40;
@@ -16,4 +26,9 @@
     border-radius: 4px;
     padding: 10px 15px;
     margin: 15px 0;
+}
+.nav button:hover{
+    border: 1px solid #FF6E40;
+    background-color: transparent;
+    color: black;
 }
