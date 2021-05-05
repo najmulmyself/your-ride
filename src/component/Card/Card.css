@@ -1,6 +1,6 @@
 .card-design{
-    width: 150px;
-    height: 143px;
+    width: 180px;
+    height: 170px;
     background-color: white;
     margin : 30px;
     text-align: center;
@@ -10,9 +10,9 @@
     box-shadow: 3px 4px 10px;
 }
 .card-design:hover{
-    width: 150px;
+    width: 180px;
+    height: 170px;
     cursor: pointer;
-    height: 143px;
     background-color: transparent;
     border: 1px solid white;
     margin : 30px;

@@ -7,10 +7,17 @@ const Main = () => {
     useEffect(() =>{
         setRide(fakeData)
     },[])
+
+    
     return (
-        <div className="card-row">
+        // <div className="card-row">
+        //     {
+        //         ride.map(eachRide => <Card eachRide={eachRide}></Card>)
+        //     }
+        // </div>
+        <div>
             {
-                ride.map(eachRide => <Card eachRide={eachRide}></Card>)
+                ride.map(eachRide => <Card></Card>)
             }
         </div>
     );

@@ -1,6 +1,8 @@
 .nav{
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    z-index: 1;
 }
 .nav h3{
     color: #2D2D2D; 
@@ -26,9 +28,11 @@
     border-radius: 4px;
     padding: 10px 15px;
     margin: 15px 0;
+    cursor: pointer;
 }
 .nav button:hover{
     border: 1px solid #FF6E40;
     background-color: transparent;
     color: black;
+    cursor: pointer;
 }
