@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import fakeData from "../../fakeData.json";
+// import { Col, Container, Row } from 'react-bootstrap';
 import Card from "../Card/Card";
+import { Navbar } from "react-bootstrap";
 
 const Home = () => {
   const [ride, setRide] = useState([]);
@@ -10,11 +12,9 @@ const Home = () => {
   }, []);
   return (
     <div className="background">
-      <div className="card-row">
-        {ride.map((eachRide) => (
-          <Card eachRide={eachRide}></Card>
-        ))}
-      </div>
+      {
+        ride.map(eachRide => <Card eachRide={eachRide}></Card>)
+      }
     </div>
   );
 };

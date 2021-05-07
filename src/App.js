@@ -1,7 +1,7 @@
 import "./App.css";
-import Main from "./component/Main/Main";
 import Navabar from "./component/Navbar/Navabar";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import Destination from "./component/Destination/Destination";
 import Home from "./component/Home/Home";
 
