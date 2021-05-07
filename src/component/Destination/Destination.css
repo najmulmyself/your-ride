@@ -1,3 +1,22 @@
-body{
-    background-color: white;
+.destination-style{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.route-div{
+    background-color: #EFEFEF;
+    padding : 15px;
+    border-radius: 5px;
+    max-height: 225px;
+}
+.input {
+    border: none;
+    border-radius: 3px;
+    padding : 5px;
+}
+.map{
+    max-height: 600px;
+    width: 100%;
+    object-fit: contain;
+    margin-bottom : 50px;
 }
