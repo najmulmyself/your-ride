@@ -5,9 +5,10 @@
 }
 .route-div{
     background-color: #EFEFEF;
+    width: 260px;
     padding : 35px;
     border-radius: 5px;
-    max-height: 250px;
+    max-height: 290px;
 }
 .input {
     border: none;
@@ -22,4 +23,10 @@
 }
 .btn-danger{
     border-radius : 3px;
+}
+.pick-route{
+    background-color: rgb(202, 72, 12);
+    border-radius: 5px;
+    max-height: 80px;
+    padding : 8px;
 }
