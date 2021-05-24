@@ -7,6 +7,9 @@ import {
   faMap,
   faMapMarkerAlt,
   faMapMarkerAltMarkerAltfaMapMarkerAlt,
+  faUser,
+  faUserFriends,
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import map from "../../images/Map.png";
 import { useParams } from "react-router";
@@ -93,18 +96,18 @@ const Destination = () => {
             <div className="ride-choice">
             <div className="test">
               <img style={{height:'40px'}} src={rideImgId.img} alt="" srcset="" />
-              <p>{rideImgId.name}</p>
-              <p>$50</p>
+              <h6>{rideImgId.name}   <FontAwesomeIcon icon={faUser} /> 1 </h6>
+              <h6>$50</h6>
             </div>
             <div className="test">
               <img style={{height:'40px'}} src={rideImgId.img} alt="" srcset="" />
-              <p>{rideImgId.name}</p>
-              <p>$70</p>
+              <h6>{rideImgId.name} <FontAwesomeIcon icon={faUserFriends} /> 2 </h6>
+              <h6>$70</h6>
             </div>
             <div className="test">
               <img style={{height:'40px'}} src={rideImgId.img} alt="" srcset="" />
-              <p>{rideImgId.name}</p>
-              <p>$90</p>
+              <h6>{rideImgId.name} <FontAwesomeIcon icon={faUsers} /> 4 </h6>
+              <h6>$90</h6>
             </div>
           </div>
             </div>
