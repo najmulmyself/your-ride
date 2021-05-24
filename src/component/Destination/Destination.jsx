@@ -16,11 +16,11 @@ const Destination = () => {
   const [pickFrom, setPickFrom] = useState("");
   const [pickTo, setPickTo] = useState("");
   const [isSearch, setIsSearch] = useState(true);
-  const [vehicle, setVehicle] = useState('');
+  const [vehicle, setVehicle] = useState([]);
   useEffect(() =>{
     setVehicle(fakeData)
   },[])
-  console.log(vehicle)
+  // console.log(vehicle)
   const onSubmit = (data) => {
     if (data.From && data.To) {
       setPickFrom(data.From);
@@ -29,6 +29,8 @@ const Destination = () => {
     }
   };
   let { id } = useParams();
+  let rideImgId = vehicle.find(eachVehicle => eachVehicle.id === Number(id))
+  console.log(rideImgId)
 
   // const handlePick = (event) => {
   //   let text = event.target.value;
@@ -68,6 +70,9 @@ const Destination = () => {
               // onBlur={(e) => setPickTo(e.target.value)}
             />
             <br />
+            <br />
+            <h6>Date</h6>
+            <input type="date" className="my-4" className="input" />
             <input
               className="btn-danger mt-5 w-100"
               type="submit"
@@ -84,12 +89,20 @@ const Destination = () => {
                 <FontAwesomeIcon icon={faMapMarkerAlt} /> {pickTo}
               </h6>
             </div>
+            <div className="ride-choice">
+            <div className="test">
+              <img style={{height:'40px'}} src={rideImgId.img} alt="" srcset="" />
+              <p>Car</p>
+              <p>fare</p>
+            </div>
             <div>
-              <p>something</p> 
-              <p>something</p>
-              <p>something</p>
+              <img style={{height:'40px'}} src={rideImgId.img} alt="" srcset="" />
+            </div>
+            <div>
+              <img style={{height:'40px'}} src={rideImgId.img} alt="" srcset="" />
             </div>
           </div>
+            </div>
         )}
       </div>
       <div>
