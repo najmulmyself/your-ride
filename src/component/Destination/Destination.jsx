@@ -31,6 +31,7 @@ const Destination = () => {
   let { id } = useParams();
   let rideImgId = vehicle.find(eachVehicle => eachVehicle.id === Number(id))
   console.log(rideImgId)
+  
 
   // const handlePick = (event) => {
   //   let text = event.target.value;
@@ -92,14 +93,18 @@ const Destination = () => {
             <div className="ride-choice">
             <div className="test">
               <img style={{height:'40px'}} src={rideImgId.img} alt="" srcset="" />
-              <p>Car</p>
-              <p>fare</p>
+              <p>{rideImgId.name}</p>
+              <p>$50</p>
             </div>
-            <div>
+            <div className="test">
               <img style={{height:'40px'}} src={rideImgId.img} alt="" srcset="" />
+              <p>{rideImgId.name}</p>
+              <p>$70</p>
             </div>
-            <div>
+            <div className="test">
               <img style={{height:'40px'}} src={rideImgId.img} alt="" srcset="" />
+              <p>{rideImgId.name}</p>
+              <p>$90</p>
             </div>
           </div>
             </div>
