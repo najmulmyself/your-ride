@@ -8,7 +8,6 @@ const Card = ({eachRide}) => {
     const history = useHistory();
     const handleCard = (id) => {
         history.push(`/destination/${id}`)
-        console.log(id)
     }
     return (
         <div onClick={() => handleCard (id)} className='card-design'>

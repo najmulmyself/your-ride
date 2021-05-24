@@ -28,5 +28,6 @@
     background-color: rgb(202, 72, 12);
     border-radius: 5px;
     max-height: 80px;
-    padding : 8px;
+    padding : 20px 15px;
+    color: white;
 }

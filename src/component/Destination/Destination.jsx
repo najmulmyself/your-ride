@@ -1,6 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import "./Destination.css";
+import fakeData from "../../fakeData.json";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMap,
+  faMapMarkerAlt,
+  faMapMarkerAltMarkerAltfaMapMarkerAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import map from "../../images/Map.png";
 import { useParams } from "react-router";
 import { useForm } from "react-hook-form";
@@ -9,6 +16,11 @@ const Destination = () => {
   const [pickFrom, setPickFrom] = useState("");
   const [pickTo, setPickTo] = useState("");
   const [isSearch, setIsSearch] = useState(true);
+  const [vehicle, setVehicle] = useState('');
+  useEffect(() =>{
+    setVehicle(fakeData)
+  },[])
+  console.log(vehicle)
   const onSubmit = (data) => {
     if (data.From && data.To) {
       setPickFrom(data.From);
@@ -63,13 +75,19 @@ const Destination = () => {
             />
           </form>
         ) : (
-          <div className="pick-route">
-            <p><FontAwesomeIcon icon={faCoffee} /> {pickFrom}</p>
-            <p>{pickTo}</p>
+          <div>
+            <div className="pick-route">
+              <h6>
+                <FontAwesomeIcon icon={faMapMarkerAlt} /> {pickFrom}
+              </h6>
+              <h6>
+                <FontAwesomeIcon icon={faMapMarkerAlt} /> {pickTo}
+              </h6>
+            </div>
             <div>
-            <p>something</p>
-            <p>something</p>
-            <p>something</p>
+              <p>something</p> 
+              <p>something</p>
+              <p>something</p>
             </div>
           </div>
         )}
