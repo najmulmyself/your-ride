@@ -17,7 +17,7 @@ function App() {
     <userContext.Provider value={[loggedInUser,setLoggedInUser]}>
     <Router>
       <Navabar></Navabar>
-      <p>Name : {loggedInUser.name}</p>
+      {/* <p>Name : {loggedInUser.name}</p> */}
       <Switch>
         <Route exact path="/">
           <Home></Home>
