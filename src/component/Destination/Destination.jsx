@@ -23,7 +23,6 @@ const Destination = () => {
   useEffect(() =>{
     setVehicle(fakeData)
   },[])
-  // console.log(vehicle)
   const onSubmit = (data) => {
     if (data.From && data.To) {
       setPickFrom(data.From);
@@ -33,7 +32,6 @@ const Destination = () => {
   };
   let { id } = useParams();
   let rideImgId = vehicle.find(eachVehicle => eachVehicle.id === Number(id))
-  console.log(rideImgId)
   
 
   // const handlePick = (event) => {
