@@ -4,24 +4,33 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import Destination from "./component/Destination/Destination";
 import Home from "./component/Home/Home";
-import Login from "./Login/Login";
+import Login from "./component/Login/Login";
+import { createContext } from "react";
+import { useState } from "react";
+import PrivateRoute from "./component/PrivateRoute/PrivateRoute";
+
+export const userContext = createContext();
 
 function App() {
+  const [loggedInUser,setLoggedInUser] = useState({});
   return (
+    <userContext.Provider value={[loggedInUser,setLoggedInUser]}>
     <Router>
       <Navabar></Navabar>
+      <p>Name : {loggedInUser.name}</p>
       <Switch>
         <Route exact path="/">
           <Home></Home>
         </Route>
-        <Route path="/destination/:id">
+        <PrivateRoute path="/destination/:id">
           <Destination></Destination>
-        </Route>
+        </PrivateRoute>
         <Route path="/login">
           <Login></Login>
         </Route>
       </Switch>
     </Router>
+    </userContext.Provider>
   );
 }
 

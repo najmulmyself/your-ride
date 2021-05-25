@@ -2,7 +2,16 @@ import React from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
+import { useContext } from 'react';
+import {userContext} from '../../App'
+import { useHistory, useLocation } from 'react-router';
 const Login = () => {
+  const [loggedInUser,setLoggedInUser] = useContext(userContext);
+  let history = useHistory();
+  let location = useLocation();
+  let { from } = location.state || { from: { pathname: "/" } };
+
+
     if(firebase.apps.length === 0){
         firebase.initializeApp(firebaseConfig);
     }
@@ -17,7 +26,11 @@ const Login = () => {
     // This gives you a Google Access Token. You can use it to access the Google API.
     var token = credential.accessToken;
     // The signed-in user info.
-    var user = result.user;
+    var {displayName,email} = result.user;
+    // Destructuring display name and email form result.user
+    const signedInUser = { name : displayName, email}; //displayName as a name
+    setLoggedInUser(signedInUser);
+    history.replace(from)
     // ...
   }).catch((error) => {
     // Handle Errors here.
@@ -33,7 +46,7 @@ const Login = () => {
     return (
         <div>
         <h2>This is Login Page</h2>
-        <button onClick={handleSignIn}>Google Sign In</button>
+        <button onClick={handleSignIn}>Google Login</button>
         </div>
     );
 };
