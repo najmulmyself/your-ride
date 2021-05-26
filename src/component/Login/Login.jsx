@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
-import './Login.css'
+import "./Login.css";
 import firebaseConfig from "./firebase.config";
 import { useContext } from "react";
 import { userContext } from "../../App";
@@ -10,6 +10,7 @@ import CustomForm from "../CustomForm/CustomForm";
 import { Container } from "react-bootstrap";
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
+  const [newUser, setNewUser] = useState(false);
   let history = useHistory();
   let location = useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
@@ -26,31 +27,23 @@ const Login = () => {
         /** @type {firebase.auth.OAuthCredential} */
         var credential = result.credential;
 
-        // This gives you a Google Access Token. You can use it to access the Google API.
         var token = credential.accessToken;
-        // The signed-in user info.
         var { displayName, email } = result.user;
-        // Destructuring display name and email form result.user
         const signedInUser = { name: displayName, email }; //displayName as a name
         setLoggedInUser(signedInUser);
         history.replace(from);
-        // ...
       })
       .catch((error) => {
-        // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        // The email of the user's account used.
         var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
-        // ...
       });
   };
   return (
     <Container>
-      <div className='login'>
-        <CustomForm></CustomForm>
+      <div className="login">
+        <CustomForm newUser={newUser} setNewUser={setNewUser}></CustomForm>
         <button onClick={handleSignIn}>Google Login</button>
       </div>
     </Container>
