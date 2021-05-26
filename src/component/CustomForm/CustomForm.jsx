@@ -1,7 +1,14 @@
 import React from "react";
 import { Button, Card, Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import "./CustomForm.css";
 const CustomForm = ({ newUser, setNewUser }) => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
   return (
     <Card>
       <h2 className="text-center mb-4 pt-2">
@@ -13,7 +20,11 @@ const CustomForm = ({ newUser, setNewUser }) => {
             <Form.Label>
               <h5>Name</h5>
             </Form.Label>
-            <Form.Control type="text" placeholder="Your Full Name" required />
+            <Form.Control
+              type="text"
+              placeholder="Your Full Name"
+              
+            />
           </Form.Group>
         )}
         <Form.Group controlId="formBasicEmail">
