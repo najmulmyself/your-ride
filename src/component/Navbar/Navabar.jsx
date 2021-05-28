@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
+import { userContext } from "../../App";
 const Navabar = () => {
+  const [loggedInUser,setLoggedInUser] = useContext(userContext);
+  const {displayName,email} = loggedInUser;
   let { id } = useParams();
   return (
     <Navbar className="bg-transparent navbar-style" expand="lg">
@@ -19,9 +22,21 @@ const Navabar = () => {
             <Nav.Link href="#link"><Link className="link" to='/'>Destination</Link></Nav.Link>
             <Nav.Link href="#link"><Link className="link" to='/'>Blog</Link></Nav.Link>
             <Nav.Link href="#link"><Link className="link" to='/'>Contact</Link></Nav.Link>
-            <Button variant="danger" className="nav-btnp">
+            {
+              email ? ( <> <span className="p-2 text-danger"> {displayName || email} </span>
+                <Button variant="danger" className="nav-btnp">
+                <Link className="link text-white" onClick={() => setLoggedInUser({})}>Log out</Link>
+                </Button>    
+               </>
+              ) : (
+                <Button variant="danger" className="nav-btnp">
+                <Link className="link text-white" to='/login'>Log In</Link>
+                </Button>
+              )
+            }
+            {/* <Button variant="danger" className="nav-btnp">
             <Link className="link text-white" to='/login'>Log In</Link>
-            </Button>
+            </Button> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
