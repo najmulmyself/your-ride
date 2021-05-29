@@ -47,7 +47,7 @@ const CustomForm = ({
       <h2 className="text-center mb-4 pt-2">
         {!newUser ? "Login" : "Create"} an Account
       </h2>
-      <p>{error}</p>
+      <p className='text-center text-danger'>{error}</p>
       <Form className="p-4" onSubmit={handleSubmit(onSubmit)}>
         {newUser && (
           <Form.Group controlId="formBasicEmail">
@@ -67,7 +67,7 @@ const CustomForm = ({
           </Form.Label>
           <Form.Control
             {...register("email", {
-              required: "Email is required",
+              required: true,
               pattern: {
                 value: /^[^\s@]+@[^\s@]+$/,
                 message: "Please enter a valid email",
@@ -96,6 +96,14 @@ const CustomForm = ({
                 message:
                   "Password must contain at least one digit, one upper and lower case letter.",
               },
+              minLength: {
+                value: 6,
+                message: "Password must be least 6 charact",
+              },
+              maxLength: {
+                value: 20,
+                message: "Passwords can be up to 20 characters",
+              },
             })}
             type="password"
             placeholder="Password"
@@ -119,6 +127,14 @@ const CustomForm = ({
                     /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!#$%&?]{6,20}$/,
                   message:
                     "Password must contain at least one digit, one upper and lower case letter.",
+                },
+                minLength: {
+                  value: 6,
+                  message: "Password must be least 6 charact",
+                },
+                maxLength: {
+                  value: 20,
+                  message: "Passwords can be up to 20 characters",
                 },
               })}
               type="password"
