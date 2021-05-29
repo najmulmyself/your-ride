@@ -8,28 +8,32 @@ import Login from "./component/Login/Login";
 import { createContext } from "react";
 import { useState } from "react";
 import PrivateRoute from "./component/PrivateRoute/PrivateRoute";
+import NotFound from "./component/CustomForm/NotFound/NotFound";
 
 export const userContext = createContext();
 
 function App() {
-  const [loggedInUser,setLoggedInUser] = useState({});
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
-    <userContext.Provider value={[loggedInUser,setLoggedInUser]}>
-    <Router>
-      <Navabar></Navabar>
-      {/* <p>Name : {loggedInUser.name}</p> */}
-      <Switch>
-        <Route exact path="/">
-          <Home></Home>
-        </Route>
-        <PrivateRoute path="/destination/:id">
-          <Destination></Destination>
-        </PrivateRoute>
-        <Route path="/login">
-          <Login></Login>
-        </Route>
-      </Switch>
-    </Router>
+    <userContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <Router>
+        <Navabar></Navabar>
+        {/* <p>Name : {loggedInUser.name}</p> */}
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <PrivateRoute path="/destination/:id">
+            <Destination></Destination>
+          </PrivateRoute>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+      </Router>
     </userContext.Provider>
   );
 }
