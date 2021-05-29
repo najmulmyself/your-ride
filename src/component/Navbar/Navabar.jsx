@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-r
 import { userContext } from "../../App";
 const Navabar = () => {
   const [loggedInUser,setLoggedInUser] = useContext(userContext);
-  const {displayName,email} = loggedInUser;
+  const {name,email} = loggedInUser;
   let { id } = useParams();
   return (
     <Navbar className="bg-transparent navbar-style" expand="lg">
@@ -23,7 +23,7 @@ const Navabar = () => {
             <Nav.Link href="#link"><Link className="link" to='/'>Blog</Link></Nav.Link>
             <Nav.Link href="#link"><Link className="link" to='/'>Contact</Link></Nav.Link>
             {
-              email ? ( <> <span className="p-2 text-danger"> {displayName || email} </span>
+              email ? ( <> <span className="p-2 text-danger"> {name || email} </span>
                 <Button variant="danger" className="nav-btnp">
                 <Link className="link text-white" onClick={() => setLoggedInUser({})}>Log out</Link>
                 </Button>    
