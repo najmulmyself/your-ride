@@ -10,7 +10,7 @@ const Card = ({eachRide}) => {
         history.push(`/destination/${id}`)
     }
     return (
-        <div onClick={() => handleCard (id)} className='card-design'>
+        <div onClick={() => handleCard (id)} className='card-design card-responsive'>
             <img src={img} style={{height:'80px'}} alt="" srcset=""/>
             <h3>{name}</h3>
         </div>
